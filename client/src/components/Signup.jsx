@@ -25,7 +25,7 @@ export default function Signup() {
       email,
       password,
     };
-    userSignUp(Data).then(navigate('/login'))
+    userSignUp(Data).then(navigate('/login')).catch('/signup')
     setUser('');
     setEmail('');
     setPassword('');
