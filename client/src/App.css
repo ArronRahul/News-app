@@ -1,3 +1,9 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
 ul{
     list-style-type: none;
     display: flex;
@@ -36,7 +42,7 @@ li:hover{
     background-color: #4f4d55;
     transition: 0.3s;
 }
-.home,.news,.login,.signup{
+.home,.login,.signup{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,4 +104,31 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.news{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.news-area{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 20px;
+    padding: 20px;
+}
+.newscard{
+    width: 300px;
+    height: 300px;
+    background-color: #00688e1f;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    padding: 20px;
 }
