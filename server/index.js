@@ -2,7 +2,7 @@ const  express= require("express")
 const  cors= require("cors")
 const  mongoose= require("mongoose")
 
-const userroute =require('./signup.route')
+const userroute =require('./route/signup.route')
 
 const app = express();
 

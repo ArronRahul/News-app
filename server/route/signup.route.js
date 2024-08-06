@@ -1,5 +1,5 @@
 const express = require('express');
-const { signupController, loginController } = require('./singup.con'); // Corrected path
+const { signupController, loginController } = require('../controllers/singup.con'); // Corrected path
 
 const router = express.Router();
 

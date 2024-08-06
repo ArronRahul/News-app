@@ -1,5 +1,5 @@
 
-const signup=require('./signup')
+const signup=require('../model/signup')
 
 const signupController = async (req, res) => {
     const { user, email, password } = req.body;
