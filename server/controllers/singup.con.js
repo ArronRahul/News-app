@@ -44,10 +44,26 @@ const loginController = async (req, res) => {
     }
 }
 
-const homeController= async(req,res)=>{
-    console.log('i am here')
-    res.json({message: 'Home Page'})
-}
+const homeController = async (req, res) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    console.log('Token from headers:', token);
+
+    if (!token) {
+        return res.status(401).json({ message: 'No token provided' });
+    }
+
+    try {
+        const decoded = jwt.verify(token, 'test');
+        console.log('Decoded token:', decoded);
+        res.json({message: "decoded",decoded})
+        console.log('responded');
+    } catch (error) {
+        return res.status(401).json({ message: 'Invalid token' });
+    }
+
+};
+
 
 
 

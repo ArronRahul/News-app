@@ -39,15 +39,17 @@ export const userLogin = async (Data) => {
     }
 }
 
-export const userDetails = async (token)=>{
+
+export const userDetails = async (token) => {
     try {
         const response = await axios.get(`${base_url}`, {
-            token
-    })
-    console.log(response.data)
-    return response.data;
-
+            headers: {
+                'Authorization': `Bearer ${token}` // Send token in headers
+            }
+        });
+        return response.data.decoded;
     } catch (error) {
-        console.log(error)
+        console.log('Error fetching user details:', error);
     }
-}
+};
+

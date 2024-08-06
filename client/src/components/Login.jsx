@@ -25,6 +25,7 @@ export default function Login({setAuth}) {
                 setAuth(true)
                 navigate('/')
                 localStorage.setItem('token',res.token)
+                window.location.reload()
             }
         })
     };

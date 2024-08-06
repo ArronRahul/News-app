@@ -1,14 +1,6 @@
 import React from 'react'
 import "../App.css"
-import {userDetails} from "../../api/api"
-export default function Home() {
-
-  
-
-  const token=localStorage.getItem('token')
-  const user = userDetails(token)
-  
-  
+export default function Home({user}){
 
   return (
     <div className='home'>
