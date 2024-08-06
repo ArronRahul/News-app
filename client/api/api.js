@@ -31,11 +31,23 @@ export const userLogin = async (Data) => {
             email,
             password
         });
-        console.log(response.data)
-        return response;
+        return response.data;
     }
     catch(error){
         console.log("error")
         return error
+    }
+}
+
+export const userDetails = async (token)=>{
+    try {
+        const response = await axios.get(`${base_url}`, {
+            token
+    })
+    console.log(response.data)
+    return response.data;
+
+    } catch (error) {
+        console.log(error)
     }
 }

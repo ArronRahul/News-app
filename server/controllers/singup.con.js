@@ -1,4 +1,5 @@
 
+const jwt=require('jsonwebtoken')
 const signup=require('../model/signup')
 
 const signupController = async (req, res) => {
@@ -36,14 +37,22 @@ const loginController = async (req, res) => {
         if (existingUser.password !== password) {
             return res.status(400).json({ message: "Invalid credentials" });
         }
-        res.status(200).json({ message: "Login successful" });
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, 'test', { expiresIn: "1h" });
+        res.json({token})
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 }
 
+const homeController= async(req,res)=>{
+    console.log('i am here')
+    res.json({message: 'Home Page'})
+}
+
+
 
 module.exports = {
     signupController,
-    loginController
+    loginController,
+    homeController
 };

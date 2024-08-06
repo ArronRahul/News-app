@@ -2,7 +2,7 @@ import { Link, useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import { userLogin } from '../../api/api';
 
-export default function Login() {
+export default function Login({setAuth}) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -17,8 +17,15 @@ export default function Login() {
             email,
             password
         };
-        userLogin(data).then(()=>{console.log("done")
-            navigate('/')
+        userLogin(data).then((res)=>{
+            if(!res.token){
+                navigate('/login')
+            }
+            else{
+                setAuth(true)
+                navigate('/')
+                localStorage.setItem('token',res.token)
+            }
         })
     };
 
