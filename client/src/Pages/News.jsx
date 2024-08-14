@@ -3,7 +3,7 @@ import "../App.css"
 import Newscard from '../components/Newscard'
 export default function News() {
   const [NewsData,setNewsData]=useState([])
-const endpoint = 'https://newsdata.io/api/1/latest?apikey=pub_4988362b664f3cc46f720982769ea356d9a73&domainurl=bbc.com';
+const endpoint = '';
 
 const fetchNews = async () => {
     try {
